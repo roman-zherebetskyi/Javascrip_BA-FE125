@@ -1,0 +1,27 @@
+:root {
+  /* #region COLORS */
+  --c-white: #fff;
+  --c-black: #000;
+
+  --c-bg: #130e29;
+
+  --c-text-primary: #a99fcb;
+  --c-title-txt: #473b83;
+  --c-title-txt--hover: #b88eff;
+  --c-title-bg: #201844;
+  --c-title-bg--hover: #291e55;
+
+  --c-link-txt: #28a9ff;
+  --c-link-txt--hover: #286cff;
+  /* #endregion*/
+
+  /* #region FONTS */
+  --f-primary: 18px;
+  --f-subtitle: 24px;
+  /* #endregion */
+
+  /* #region OPTIONS*/
+  --o-transition: all 0.2s ease;
+  --o-padding-primary: clamp(20px, 2vw, 60px);
+  /* #endregion*/
+}

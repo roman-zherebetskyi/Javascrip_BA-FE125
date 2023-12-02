@@ -1,0 +1,12 @@
+.button {
+  font-size: var(--f-subtitle);
+  font-weight: 600;
+  padding: var(--o-padding-primary);
+  transition: var(--o-transition);
+  color: var(--c-title-txt);
+
+  &:hover {
+    color: var(--c-title-txt--hover);
+    background-color: var(--c-title-bg);
+  }
+}

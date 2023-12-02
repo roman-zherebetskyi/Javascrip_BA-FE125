@@ -1,0 +1,9 @@
+.link {
+  font-size: var(--f-primary);
+  color: var(--c-link-txt);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--c-link-txt--hover);
+  }
+}

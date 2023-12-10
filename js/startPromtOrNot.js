@@ -3,7 +3,7 @@ function startPromtOrNot() {
   const checkPrompt = confirm('Бажаєш запустити промпти?');
 
   if (!checkPrompt) {
-    throw new Error('Скасовано користувачем')
+    throw new Error('Промпти скасовані користувачем.')
   }
 }
 

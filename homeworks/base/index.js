@@ -1,4 +1,4 @@
-import startPromtOrNot from "../../js/startPromtOrNot.js";
+import startPromtOrNot from '../../js/startPromtOrNot.js';
 
 startPromtOrNot();
 
@@ -10,55 +10,55 @@ startPromtOrNot();
 
 // * Норма
 // 1. Запитай ім’я користувача та виведи у відповідь “Привіт, *ім’я*”;
-let userName = prompt("Окей, як тебе звати?");
+let userName = prompt('Окей, як тебе звати?');
 
 console.log("І'мя користувача: " + userName);
 
 // 2. Запитай рік народження користувача, порахуй його/її вік і виведи результат. Поточний рік вкажи в коді як константу;
 const currentYear = new Date().getFullYear();
 let userAge =
-  currentYear - prompt("Привіт, " + userName + "! З якого ти року?");
+  currentYear - prompt('Привіт, ' + userName + '! З якого ти року?');
 
-console.log("Користувачеві:", +userAge, "років.");
+console.log('Користувачеві:', +userAge, 'років.');
 
 // 3. Запитай у користувача довжину сторони квадрату і виведи периметр цього квадрата.
-const squareSideLenght = +prompt("Вкажи довжину сторони квадрата:");
+const squareSideLenght = +prompt('Вкажи довжину сторони квадрата:');
 
-console.log("Периметр квадрату =", squareSideLenght * 4);
+console.log('Периметр квадрату =', squareSideLenght * 4);
 
 // * Максимум
 // 1. Запитай у користувача радіус кола і виведи площу такої окружності.
-const circleRadius = +prompt("Вкажи радіус кола:");
+const circleRadius = +prompt('Вкажи радіус кола:');
 
 console.log(
-  "Площа окружності кола =",
+  'Площа окружності кола =',
   Math.trunc(Math.PI * Math.pow(circleRadius, 2))
 );
 
 // 2. Запитай у користувача відстань в кілометрах між двома містами і за скільки годин він хоче дістатися. Порахуй швидкість, з якою необхідно рухатися, щоб встигнути вчасно.
-const distanceBetweenCities = +prompt("Вкажи відстань між містами:");
+const distanceBetweenCities = +prompt('Вкажи відстань між містами:');
 const inHowManyHours = +prompt(
-  "За скільки годин ти хочеш добратися з одного міста в інше місто?"
+  'За скільки годин ти хочеш добратися з одного міста в інше місто?'
 );
 
 console.log(
-  "Щоб здолати відстань у",
+  'Щоб здолати відстань у',
   distanceBetweenCities,
-  "км. за",
+  'км. за',
   inHowManyHours,
-  "годин, тобі потрібно рухатися зі швидкістю",
+  'годин, тобі потрібно рухатися зі швидкістю',
   (distanceBetweenCities / inHowManyHours).toFixed(2),
-  "км/год."
+  'км/год.'
 );
 
 // 3. Реалізуй конвертор валют. Користувач вводить долари, програма переводить їх в євро. Курс валют зберігається в константі.
 const currencyCourse = 0.92;
-const howMuchDollars = +prompt("Скільки доларів ти хочеш поміняти в євро?");
+const howMuchDollars = +prompt('Скільки доларів ти хочеш поміняти в євро?');
 
 console.log(
-  "За",
+  'За',
   howMuchDollars,
-  "доларів ти отримаєш",
+  'доларів ти отримаєш',
   +(currencyCourse * howMuchDollars).toFixed(2),
-  "євро по курсу 0.92 євро за долар."
+  'євро по курсу 0.92 євро за долар.'
 );

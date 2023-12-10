@@ -68,7 +68,7 @@ img {
   background-color: var(--c-title-bg);
 }
 
-.page_title {
+.padding__primary {
   padding: var(--o-padding-primary);
 }
 
@@ -82,8 +82,6 @@ img {
   justify-self: center;
 }
 .menu__item {
-  height: -moz-max-content;
-  height: max-content;
   cursor: pointer;
   position: relative;
   padding: var(--o-padding-primary);
@@ -104,6 +102,10 @@ img {
   min-width: 100%;
   width: -moz-max-content;
   width: max-content;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 80vh;
   background-color: inherit;
   opacity: 0;
   pointer-events: none;

@@ -1,4 +1,4 @@
-import startPromtOrNot from "../../js/startPromtOrNot.js";
+import startPromtOrNot from '../../js/startPromtOrNot.js';
 
 startPromtOrNot();
 
@@ -11,8 +11,8 @@ function countArguments() {
 }
 
 console.log(
-  "Кліькість аргументів у функції:",
-  countArguments(1, true, "argument", [])
+  'Кліькість аргументів у функції:',
+  countArguments(1, true, 'argument', [])
 ); // 4
 
 // 3. Напиши функцію, яка приймає 2 числа і повертає :
@@ -25,8 +25,8 @@ function compareNumbers(x, y) {
 
 console.log(
   compareNumbers(
-    prompt("Введи перше число для порівняння:"),
-    prompt("Введи друге число для порівняння:")
+    prompt('Введи перше число для порівняння:'),
+    prompt('Введи друге число для порівняння:')
   )
 );
 
@@ -45,12 +45,12 @@ function factorial(n) {
   // Рекурсивний виклик для обчислення факторіалу
   return n * factorial(n - 1);
 }
-const factorialNumber = prompt("Введи число, щоб обчислити факторіал:");
+const factorialNumber = prompt('Введи число, щоб обчислити факторіал:');
 
 console.log(
-  "Факторіал числа",
+  'Факторіал числа',
   +factorialNumber,
-  "дорівнює:",
+  'дорівнює:',
   factorial(factorialNumber)
 );
 
@@ -61,11 +61,11 @@ function numberMaker(num1, num2, num3) {
 }
 
 console.log(
-  "Твоє число:",
+  'Твоє число:',
   numberMaker(
-    prompt("Введи першу цифру щоб перетворити її в число:"),
-    prompt("Введи другу цифру щоб перетворити її в число:"),
-    prompt("Введи третю цифру щоб перетворити її в число:")
+    prompt('Введи першу цифру щоб перетворити її в число:'),
+    prompt('Введи другу цифру щоб перетворити її в число:'),
+    prompt('Введи третю цифру щоб перетворити її в число:')
   )
 ); // 521
 
@@ -104,7 +104,7 @@ function isPerfectNumber(number) {
 }
 
 const inputNumber = +prompt(
-  "Введи число, щоб перевірити чи воно є досконалим:"
+  'Введи число, щоб перевірити чи воно є досконалим:'
 );
 
 isPerfectNumber(inputNumber)
@@ -123,13 +123,13 @@ function findPerfectNumbersInRange(min, max) {
 
   return perfectNumbers;
 }
-const minRange = +prompt("Введи мінімальне значення діапазону:");
-const maxRange = +prompt("Введи максимальне значення діапазону:");
+const minRange = +prompt('Введи мінімальне значення діапазону:');
+const maxRange = +prompt('Введи максимальне значення діапазону:');
 
 const perfectNumbersInRange = findPerfectNumbersInRange(minRange, maxRange);
 
 console.log(
   `Досконалі числа у діапазоні від ${minRange} до ${maxRange}: ${perfectNumbersInRange.join(
-    ", "
+    ', '
   )}`
 );

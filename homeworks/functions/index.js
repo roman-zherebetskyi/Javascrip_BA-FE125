@@ -7,12 +7,13 @@ startPromtOrNot();
 
 // 2. Створи функцію, яка буде виводити кількість переданих їй аргументів.
 function countArguments() {
-  return arguments.length;
+
+  return arguments.length = prompt("Скільки аргументів передати у фунцкію?");
 }
 
 console.log(
   'Кліькість аргументів у функції:',
-  countArguments(1, true, 'argument', [])
+  +countArguments()
 ); // 4
 
 // 3. Напиши функцію, яка приймає 2 числа і повертає :
@@ -24,6 +25,7 @@ function compareNumbers(x, y) {
 }
 
 console.log(
+  "Результат порівняння чисел:",
   compareNumbers(
     prompt('Введи перше число для порівняння:'),
     prompt('Введи друге число для порівняння:')
@@ -71,14 +73,24 @@ console.log(
 
 // 6. Напиши функцію, яка приймає довжину і ширину прямокутника і обчислює його площу. Якщо в функцію передали 1 параметр, то вона обчислює площу квадрата.
 function rectangleOrSquare(a, b) {
-  if (arguments.length === 1) {
+  if (a === null || !a.length || a < 0 || Number(a) === 0) {
+    return b * b;
+  } else if (b === null || !b.length || b < 0 || Number(b) === 0) {
     return a * a;
+  } else {
+    return a * b;
   }
 
   return a * b;
 }
 
-console.log(rectangleOrSquare(5));
+console.log(
+  'Площа дорівнює:',
+  rectangleOrSquare(
+    prompt('Введи довжину прямокутника:'),
+    prompt('Введи ширину прямокутника:')
+  )
+);
 
 // * Норма
 // 1. Напиши функцію, яка перевіряє, чи є передане їй число “досконалим числом”. Досконале число - це число, яке дорівнює сумі всіх своїх дільників.
@@ -108,8 +120,8 @@ const inputNumber = +prompt(
 );
 
 isPerfectNumber(inputNumber)
-  ? console.log(`${inputNumber} - це досконале число!`)
-  : console.log(`${inputNumber} - не є досконалим числом.`);
+  ? console.log(inputNumber, "- це досконале число!")
+  : console.log(inputNumber, "- не є досконалим числом.");
 
 // 2. Напиши функцію, яка приймає мінімальне і максимальне значення для діапазону, і виводить тільки ті числа з діапазону, які є досконалими. Використовуй написану раніше функцію, щоб дізнатися, чи є це число досконалим.
 function findPerfectNumbersInRange(min, max) {
@@ -123,13 +135,20 @@ function findPerfectNumbersInRange(min, max) {
 
   return perfectNumbers;
 }
+
 const minRange = +prompt('Введи мінімальне значення діапазону:');
 const maxRange = +prompt('Введи максимальне значення діапазону:');
 
-const perfectNumbersInRange = findPerfectNumbersInRange(minRange, maxRange);
+let perfectNumbersInRange = findPerfectNumbersInRange(minRange, maxRange);
 
-console.log(
-  `Досконалі числа у діапазоні від ${minRange} до ${maxRange}: ${perfectNumbersInRange.join(
-    ', '
-  )}`
-);
+if (!perfectNumbersInRange.length) {
+  console.log(
+    `У діапазоні від ${minRange} до ${maxRange}, немє досконалих чисел.`
+  );
+} else {
+  console.log(
+    `Досконалі числа у діапазоні від ${minRange} до ${maxRange}: ${perfectNumbersInRange.join(
+      ', '
+    )}`
+  );
+}

@@ -5,3 +5,5 @@ const products = [
   { id: 4, name: 'potato', price: 1.1, },
   { id: 5, name: 'apple', price: 3.97, },
 ];
+
+export default products;

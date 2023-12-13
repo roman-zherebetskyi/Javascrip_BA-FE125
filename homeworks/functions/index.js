@@ -120,8 +120,8 @@ const inputNumber = +prompt(
 );
 
 isPerfectNumber(inputNumber)
-  ? console.log(inputNumber, "- це досконале число!")
-  : console.log(inputNumber, "- не є досконалим числом.");
+  ? console.log("Число:", inputNumber, "є досконалим!")
+  : console.log("Число:", inputNumber, "- не є досконалим числом.");
 
 // 2. Напиши функцію, яка приймає мінімальне і максимальне значення для діапазону, і виводить тільки ті числа з діапазону, які є досконалими. Використовуй написану раніше функцію, щоб дізнатися, чи є це число досконалим.
 function findPerfectNumbersInRange(min, max) {

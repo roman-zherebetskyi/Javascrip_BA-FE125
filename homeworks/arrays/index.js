@@ -21,16 +21,12 @@ import shoppingList from './scripts/shoppingList.js';
 // Підрахунок суми всіх (не) придбаних продуктів.
 // Показання продуктів в залежності від суми, (від більшого до меншого / від меншого до більшого, в залежності від параметра функції, який вона приймає)
 
-function sortProductsByBougth(array) {
-  return array.sort((a, b) => {
-    if (a.bought > b.bought) return 1;
-    if (a.bought < b.bought) return -1;
-    return 0;
-  });
+function sortProductsByBougth(productsList) {
+  return productsList.sort((a, b) => a.bought - b.bought);
 }
 
-function setProductsAsBougth(array, productName) {
-  return array.forEach((product) => {
+function setProductsAsBougth(productsList, productName) {
+  return productsList.forEach((product) => {
     if (product.name === productName) {
       product.bought = true;
       product.sum = product.quantity * product.price;
@@ -45,31 +41,35 @@ function setProductsAsBougth(array, productName) {
   });
 }
 
-function deleteProduct(array, productName) {
-  const index = array.findIndex((product) => product.name === productName);
-  return array.splice(index, index);
+function deleteProduct(productsList, productName) {
+  const index = productsList.findIndex(
+    (product) => product.name === productName
+  );
+  return productsList.splice(index, index);
 
-  //to create a new array we can use filter method:
-  // return array.filter(product => product.name !== productName);
+  //to create a new productsList we can use filter method:
+  // return productsList.filter(product => product.name !== productName);
 }
 
 function addProduct(
-  array,
+  productsList,
   productName,
   quantity = 1,
   price = +(Math.random() * 10).toFixed(2)
 ) {
-  if (array.some((product) => product.name === productName)) {
-    const index = array.findIndex((product) => product.name === productName);
+  if (productsList.some((product) => product.name === productName)) {
+    const index = productsList.findIndex(
+      (product) => product.name === productName
+    );
 
-    array[index].quantity += 1;
+    productsList[index].quantity += 1;
 
-    if (array[index].bought) {
-      array[index].sum += array[index].price;
+    if (productsList[index].bought) {
+      productsList[index].sum += productsList[index].price;
     }
   } else {
-    array.push({
-      id: array.length + 1,
+    productsList.push({
+      id: productsList.length + 1,
       name: productName,
       quantity: quantity < 1 ? 1 : quantity,
       bought: false,
@@ -79,17 +79,17 @@ function addProduct(
   }
 }
 
-function sumAllProducts(array) {
+function sumAllProducts(productsList) {
   return console.log(
     'Sum of all products is: ' +
-      array.reduce((acc, product) => {
+      productsList.reduce((acc, product) => {
         return (acc += product.price * product.quantity);
       }, 0)
   );
 }
 
-function sumNotBoughtProducts(array) {
-  const result = array
+function sumNotBoughtProducts(productsList) {
+  const result = productsList
     .filter((product) => !product.bought)
     .reduce((acc, product) => {
       return (acc += product.price * product.quantity);
@@ -100,40 +100,89 @@ function sumNotBoughtProducts(array) {
     : console.log('Sum of unbought products is: ' + result);
 }
 
-function sortProductsByPrice(array, value) {
-  array.sort((a, b) => {
-    // math.sign
+function sortProductsByPrice(productsList, value) {
+  productsList.sort((a, b) => {
     switch (value) {
       case 'expensive': {
-        if (a.price < b.price) return 1;
-        if (a.price > b.price) return -1;
-        return 0;
+        return a.price - b.price;
       }
 
       case 'cheep': {
-        if (a.price > b.price) return 1;
-        if (a.price < b.price) return -1;
-        return 0;
+        return b.price - a.price;
       }
 
       default: {
-        if (a.price > b.price) return 1;
-        if (a.price < b.price) return -1;
-        return 0;
+        return a.price - b.price;
       }
     }
   });
 }
+
+class SortProducts {
+  constructor(productsList) {
+    this.productsList = productsList;
+  }
+
+  byPrice(value) {
+    this.productsList.sort((a, b) => {
+      switch (value) {
+        case 'expensive': {
+          return b.price - a.price;
+        }
+  
+        case 'cheep': {
+          return a.price - b.price;
+        }
+  
+        default: {
+          return a.price - b.price;
+        }
+      }
+    });
+  };
+
+  byName() {
+    this.productsList.sort((a, b) => {
+      return a.name.localeCompare(b.name);
+    });
+  }
+
+  bySum(value) {
+    this.productsList.sort((a, b) => {
+      switch (value) {
+        case 'expensive': {
+          return b.sum - a.sum;
+        }
+  
+        case 'cheep': {
+          return a.sum - b.sum;
+        }
+  
+        default: {
+          return a.sum - b.sum;
+        }
+      }
+    });
+  };
+
+  byBought() {
+    return this.productsList.sort((a, b) => a.bought - b.bought);
+  }
+};
 
 addProduct(shoppingList, 'orange', 2, 2.56);
 setProductsAsBougth(shoppingList, 'orange');
 deleteProduct(shoppingList, 'butter');
 addProduct(shoppingList, 'eggs', 20, 6.5);
 setProductsAsBougth(shoppingList, 'eggs');
-sortProductsByBougth(shoppingList);
 sumAllProducts(shoppingList);
 sumNotBoughtProducts(shoppingList);
 setProductsAsBougth(shoppingList, 'all');
-sortProductsByPrice(shoppingList);
+// sortProductsByBougth(shoppingList);
+// sortProductsByPrice(shoppingList);
+
+new SortProducts(shoppingList).byPrice('expensive')
+new SortProducts(shoppingList).byName()
+new SortProducts(shoppingList).bySum('cheep')
 
 console.table(shoppingList);

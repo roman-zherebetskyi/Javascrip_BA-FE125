@@ -8,9 +8,9 @@
     cursor: pointer;
     position: relative;
 
-    padding: var(--o-padding-primary);
+    padding: var(--p-padding-primary);
     
-    transition: var(--o-transition);
+    transition: var(--t-transition);
     color: var(--c-title-txt);
 
     &:hover {
@@ -46,7 +46,7 @@
 
       a {
         display: block;
-        padding: var(--o-padding-primary);
+        padding: var(--p-padding-primary);
 
         &:hover {
           background-color: var(--c-title-bg--hover);

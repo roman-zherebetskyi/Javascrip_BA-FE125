@@ -1,0 +1,10 @@
+.page {
+  &__title {
+    color: var(--c-link-txt);
+    padding: var(--p-padding-primary);
+
+    & + p {
+      padding: var(--p-padding-primary);
+    }
+  }
+}

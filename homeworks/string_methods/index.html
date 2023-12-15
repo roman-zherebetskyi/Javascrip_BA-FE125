@@ -12,6 +12,7 @@
     />
     <!-- * global styles -->
     <link rel="stylesheet" href="../../index.css" />
+    <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
     <!-- * App -->
@@ -20,14 +21,279 @@
         <nav class="panel">
           <a class="button" href="../../index.html">Homepage</a>
         </nav>
-        <h1 class="padding__primary">String Methods</h1>
-        <p class="padding__primary">
-          *включи консоль в інструментах розробника
-        </p>
+        <h1 class="page__title">JS String Methods:</h1>
       </header>
+      <main>
+        <ul class="method">
+          <li class="method__item">
+            <h2 class="method__title">.charAt(index):</h2>
+            <p class="method__description">
+              Повертає символ рядка за вказаним індексом. Якщо індекс менший 0,
+              більший або рівний довжині рядка, метод повертає пустий рядок.
+            </p>
+            <pre class="method__example">
+let str = "Hello, World!"; 
+
+let firstChar = str.charAt(0);
+console.log(firstChar); // Виведе перший символ рядка "H" 
+
+let lastChar = str.charAt(str.length - 1); 
+console.log(lastChar); // Виведе останній символ рядка "!"
+            </pre>
+          </li>
+          <li class="method__item">
+            <h2 class="method__title">.charCodeAt()</h2>
+            <p class="method__description">
+              Повертає ціле число, яке представляє числове значення Юнікоду для
+              символу на вказаному індексі у рядку. Якщо індекс менший 0,
+              більший або рівний довжині рядка, метод повертає 'NaN'
+            </p>
+            <pre class="method__example">
+let str = "A";
+
+let unicodeValue = str.charCodeAt(0);
+console.log(unicodeValue); // Виведе 65
+
+let unicodeValue = str.charCodeAt(-1);
+console.log(unicodeValue); // Виведе NaN
+
+let str = "Hello";
+for (let i = 0; i > str.length; i++) {
+  console.log(str.charCodeAt(i));
+} // Виведе 72 101 108 108 111
+            </pre>
+          </li>
+          <li class="method__item">
+            <h2 class="method__title">.concat(str1, str2, ...):</h2>
+            <p class="method__description">
+              Метод concat() використовується для об'єднання (конкатенації) двох
+              або більше рядків. Не змінює ориг., а створює новий рядок, який є
+              результатом об'єднання. Приймає будь-яку кількість параметрів.
+              Замість concat() можна також використовувати оператор +. Параметри
+              можуть бути як рядками, так і будь-якими іншими типами даних, які
+              автоматично будуть перетворені в рядки.
+            </p>
+            <pre class="method__example">
+let str1 = "Hello";
+let str2 = ", ";
+let str3 = "World!";
+let greeting = str1.concat(str2, str3);
+console.log(greeting); // Виведе "Hello, World!"
+            </pre>
+          </li>
+          <li class="method__item">
+            <h2 class="method__title">.includes(str):</h2>
+            <p class="method__description">
+              Перевіряє, чи містить рядок вказану підстрічку. Повертає true або
+              false.
+            </p>
+            <pre class="method__example">
+let str = "Hello, World!";
+
+let containsWorld = str.includes("World");
+console.log(containsWorld); // Виведе true
+            </pre>
+          </li>
+          <li class="method__item">
+            <h2 class="method__title">
+              .indexOf(substring) та .lastIndexOf(substring):
+            </h2>
+            <p class="method__description">
+              Повертають індекс першого / останнього входження підстрічки
+              (число).
+            </p>
+            <pre class="method__example">
+let str = "Hello, World!";
+
+let index = str.indexOf("World");
+console.log(index); // Виведе 7
+
+let lastIndex = str.lastIndexOf("o");
+console.log(lastIndex); // Виведе 8
+            </pre>
+          </li>
+          <li class="method__item">
+            <h2 class="method__title">.length:</h2>
+            <p class="method__description">Повертає довжину рядка (число).</p>
+            <pre class="method__example">
+let array = [1, 2, 3, 4, 5];
+let lengthOfArray = array.length;
+console.log(lengthOfArray); // Виведе 5
+            </pre>
+          </li>
+          <li class="method__item">
+            <h2 class="method__title">.padStart() та .padEnd():</h2>
+            <p class="method__description">
+              Використовуються для додавання деякої кількості символів (зазвичай
+              пробілів) до початку або кінця рядка так, щоб рядок досягнув
+              певної мінімальної довжини. Якщо довжина вихідного рядка вже
+              досягає або перевищує targetLength, обидва методи повертають
+              незмінений вихідний рядок без додавання символів.
+            </p>
+            <pre class="method__example">
+let str = "Hello";
+let paddedStart = str.padStart(10, "*");
+let paddedEnd = str.padEnd(10, "*");
+console.log(paddedStart); // Виведе "*****Hello"
+console.log(paddedEnd);   // Виведе "Hello*****"
+            </pre>
+          </li>
+
+          <li class="method__item">
+            <h2 class="method__title">.repeat(count):</h2>
+            <p class="method__description">
+              Створює і повторює рядок задану кількість разів та повертає новий
+              рядок. Якщо (count) є від'ємним числом або Infinity, метод
+              повертає порожній рядок "", а якщо не є цілим числом, він буде
+              округлений до найближчого цілого, а якщо дробовим числом або
+              'NaN', ви отримаєте помилку 'RangeError'.
+            </p>
+            <pre class="method__example">
+let str = "Hello";
+let repeatedString = str.repeat(3);
+console.log(repeatedString); // Виведе "HelloHelloHello"
+            </pre>
+          </li>
+
+          <li class="method__item">
+            <h2 class="method__title">.replace(oldStr, newStr):</h2>
+            <p class="method__description">
+              Замінює перше входження підстрічки на новий рядок. Виконує тільки
+              перше входження підстрічки. Не змінює оригінальний рядок, а
+              повертає новий змінений.
+            </p>
+            <pre class="method__example">
+let originalString = "Hello, World!";
+let replacedString = originalString.replace("World", "JavaScript");
+console.log(replacedString); // Виведе "Hello, JavaScript!"
+
+let sentence = "I love apples and oranges. Apples are great!";
+let replacedSentence = sentence.replace(/apples/i, "bananas");
+console.log(replacedSentence); // Виведе "I love bananas and oranges. Apples are great!"
+            </pre>
+            <p class="method__description">
+              У цьому прикладі, за допомогою регулярного виразу /apples/i, ми
+              замінюємо перше входження "apples", ігноруючи регістр, на
+              "bananas".
+            </p>
+          </li>
+
+          <li class="method__item">
+            <h2 class="method__title">.slice(start, end):</h2>
+            <p class="method__description">
+              Вирізає частину рядка між вказаними індексами (start та end), не
+              включаючи end. Не змінює оригінальний рядок, а створює новий
+              рядок, який є витягнутою підстрічкою. Якщо start велике число або
+              виходить за межі рядка (масиву), метод повертає порожній рядок
+              (масив). Якщо end менше start, також повертається порожній рядок
+              (масив). Якщо в end використовується від'ємне значення, воно
+              вважається відліком з кінця рядка (масиву).
+            </p>
+            <pre class="method__example">
+let str = "Hello, World!";
+let slicedString = str.slice(7, 12);
+console.log(slicedString); // Виведе "World"
+
+let str2 = "12345";
+let slicedString2 = str2.slice(1, 4);
+console.log(slicedString2); // Виведе [2, 3, 4]
+            </pre>
+          </li>
+
+          <li class="method__item">
+            <h2 class="method__title">.split(separator):</h2>
+            <p class="method__description">
+              Повертає масив, створений з підстрічок, отриманих розділенням
+              вихідного рядка за вказаним роздільником (separator).
+            </p>
+            <pre class="method__example">
+let fruits = "apple,orange,banana";
+let fruitArray = fruits.split(",");
+console.log(fruitArray); // Виведе ["apple", "orange", "banana"]
+
+let sentence = "Hello, world! How are you?";
+let wordsArray = sentence.split(/\s+/);
+console.log(wordsArray); // Виведе ["Hello,", "world!", "How", "are", "you?"]
+            </pre>
+            <p class="method__description">
+              У цьому прикладі роздільником виступає регулярний вираз /\s+/,
+              який розділяє рядок за будь-яким числом пробілів чи символів
+              переносу рядка.
+            </p>
+          </li>
+
+          <li class="method__item">
+            <h2 class="method__title">.startsWith(str) та .endsWith(str):</h2>
+            <p class="method__description">
+              Ці методи дозволяють легко перевіряти, чи рядок починається або
+              закінчується певними символами чи підстрічками. Повертають логічне
+              значення (true або false). Приймають один параметр — підстрічку, з
+              якою порівнюється рядок.
+            </p>
+            <pre class="method__example">
+let str = "Hello, World!";
+
+let startsWithHello = str.startsWith("Hello");
+console.log(startsWithHello); // Виведе true
+
+let endsWithWorld = str.endsWith("World!");
+console.log(endsWithWorld); // Виведе true
+            </pre>
+          </li>
+
+          <li class="method__item">
+            <h2 class="method__title">.substring(start, end):</h2>
+            <p class="method__description">
+              Повертає новий рядок, який є результатом витягування підстрічки з
+              оригінального рядка між вказаними індексами (start та end), не
+              включаючи end. Якщо start більший, ніж end, метод автоматично
+              обмінює значення, щоб правильно визначити інтервал. Якщо start або
+              end від'ємні, вони розглядаються як індекси з кінця рядка
+              (відповідно відлік від кінця до початку рядка). Якщо end відсутній
+              або більший, ніж довжина рядка, витягується до кінця рядка.
+            </p>
+            <pre class="method__example">
+let str = "Hello, World!";
+
+let substring = str.substring(7, 12);
+console.log(substring); // Виведе "World"
+            </pre>
+          </li>
+
+          <li class="method__item">
+            <h2 class="method__title">.toUpperCase() та .toLowerCase():</h2>
+            <p class="method__description">
+              Змінюють регістр всіх символів рядка в нижній або верхній регістр
+              відповідно.
+            </p>
+            <pre class="method__example">
+let str = "Hello, World!";
+
+let uppercased = str.toUpperCase();
+console.log(uppercased); // Виведе "HELLO, WORLD!"
+
+let lowercased = str.toLowerCase();
+console.log(lowercased); // Виведе "hello, world!"
+            </pre>
+          </li>
+
+          <li class="method__item">
+            <h2 class="method__title">.trim():</h2>
+            <p class="method__description">
+              Повертає новий рядок, який є копією вихідного рядка, але без
+              пробілів з обох кінців. Не змінює оригінал.
+            </p>
+            <pre class="method__example">
+let originalString = "   Hello, World!   ";
+let trimmedString = originalString.trim();
+console.log(originalString); // Виведе "   Hello, World!   "
+console.log(trimmedString);  // Виведе "Hello, World!"
+            </pre>
+          </li>
+        </ul>
+      </main>
     </div>
     <!-- * local script -->
-    <!-- <script src="./index.js" type="module" defer></script> -->
     <script src="./index.js" type="module" defer></script>
   </body>
 </html>

@@ -1,8 +1,8 @@
 .button {
   font-size: var(--f-subtitle);
   font-weight: 600;
-  padding: var(--o-padding-primary);
-  transition: var(--o-transition);
+  padding: var(--p-padding-primary);
+  transition: var(--t-transition);
   color: var(--c-title-txt);
 
   &:hover {

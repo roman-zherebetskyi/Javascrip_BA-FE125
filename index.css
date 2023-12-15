@@ -76,6 +76,27 @@ img {
   padding: var(--p-padding-primary);
 }
 
+.method {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-inline: var(--p-padding-primary);
+}
+.method__item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.method__title {
+  color: var(--c-title-txt--hover);
+}
+.method__example {
+  background-color: var(--c-title-bg--hover);
+  white-space: pre-wrap;
+  padding: 14px 14px 0 14px;
+  border-radius: 8px;
+}
+
 .panel {
   display: grid;
 }

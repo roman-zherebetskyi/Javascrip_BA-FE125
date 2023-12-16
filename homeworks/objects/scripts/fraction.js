@@ -1,4 +1,4 @@
-import findGCD from '../../functions/scripts/findGCD.js';
+import findGCD from '../../../js/findGCD.js';
 
 // * Максимум
 // - Створи об'єкт, що описує звичайний дріб. Створи об'єкт, який має методи роботи з дробом:

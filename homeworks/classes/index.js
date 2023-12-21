@@ -1,40 +1,37 @@
-function reduceDirections(route) {
-  let obj = {
-    'north': 1,
-    'south': -1,
-    'east': 2,
-    'west': -2,
+// import Circle from "./circle.js";
+// import Marker from "./marker.js";
+// import SuperMarker from "./superMarker.js";
+
+// const circle = new Circle(5);
+
+// console.log(circle);
+// console.log(circle.radius);
+// console.log(circle.diameter);
+// console.log(circle.getArea());
+// console.log(circle.getLength());
+
+// const marker = new Marker('blue');
+// const superMarker = new SuperMarker('green');
+
+// console.log(marker);
+// console.log(superMarker);
+
+// class Employee {
+//   constructor(name, companyName) {
+//     this.name = name;
+//     this.duty = companyName;
+//   }
+// }
+
+// const empl = new Employee('Roman', 'Financial Manager')
+// console.log(empl)
+
+class EmpTable {
+  constructor(employeesData) {
+    this.employeesData = employeesData;
   }
 
-  function getKeyByValue(object, value) {
-    return Object.keys(object).find(key => object[key] === value);
+  getHtml() {
+    
   }
-  
-  console.log(getKeyByValue(obj, -2))
-
-  route.reduce((acc, dir, i, self) => {
-    let x = 0;
-    let y = 0;
-
-    if (dir === 'north') {
-      x += obj[dir];
-    }
-
-    if (dir === 'south') {
-      x += obj[dir];
-    }
-
-    if (dir === 'east') {
-      y += obj[dir]
-    }
-
-    if (dir === 'west') {
-      y += obj[dir];
-    }
-
-    console.log(x, y)
-  }, [])
-
 }
-
-reduceDirections(['north', 'east', 'west', 'south', 'west', 'west', 'north']);

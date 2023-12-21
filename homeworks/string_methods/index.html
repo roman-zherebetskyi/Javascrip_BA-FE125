@@ -12,7 +12,6 @@
     />
     <!-- * global styles -->
     <link rel="stylesheet" href="../../index.css" />
-    <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
     <!-- * App -->
@@ -58,7 +57,7 @@ let unicodeValue = str.charCodeAt(-1);
 console.log(unicodeValue); // Виведе NaN
 
 let str = "Hello";
-for (let i = 0; i &#62 str.length; i++) {
+for (let i = 0; i &lt; str.length; i++) {
   console.log(str.charCodeAt(i));
 } // Виведе 72 101 108 108 111
             </pre>
@@ -110,6 +109,25 @@ console.log(index); // Виведе 7
 
 let lastIndex = str.lastIndexOf("o");
 console.log(lastIndex); // Виведе 8
+            </pre>
+          </li>
+          <li class="method__item">
+            <h2 class="method__title">.fromCodePoint(int):</h2>
+            <p class="method__description">
+              Цей метод приймає один чи будь-яку кількість параметрів (цілі
+              числа), кожен з яких відповідає кодовій точці Unicode. Метод
+              повертає рядок, який складається з символів, відповідних переданим
+              кодовим точкам.
+            </p>
+            <pre class="method__example">
+const codePoint1 = 65; // кодова точка для символа 'A'
+const codePoint2 = 97; // кодова точка для символа 'a'
+
+const str = String.fromCodePoint(codePoint1, codePoint2);
+
+console.log(str); // Вивід: "Aa"
+
+const str = String.fromCodePoint(72, 101, 108, 108, 111); // Вивід: "Hello"
             </pre>
           </li>
           <li class="method__item">
@@ -293,7 +311,5 @@ console.log(trimmedString);  // Виведе "Hello, World!"
         </ul>
       </main>
     </div>
-    <!-- * local script -->
-    <script src="./index.js" type="module" defer></script>
   </body>
 </html>
